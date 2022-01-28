@@ -133,3 +133,15 @@ def main():
 
 print("Welcome to Love Sandwiches Data Automation")
 main()
+
+def get_stock_values(data):
+    headings = SHEET.worksheet("surplus").row_values(1)
+    predict = {}
+    for head, figure in zip(headings, data):
+        each_entry = {head: figure}
+        predict[head]=figure
+    
+    return predict
+    
+stock_values = get_stock_values(stock_data)
+print(stock_values)
